@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What to Do ?</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/media/logo.png" type="logo">
+  <script src=scrypt.js></script>
+</head>
+<body>
+  <header>
+
+
+    <nav>
+        <div class="town">
+           <img src="media/location.png" alt="loc" class="loc">
+           <p><span id="city"></span></p>
+        </div>
+        <a href="pr.html" class="el2">Найти активность</a>
+        <a href="index.html" class="el3"><img src="media/logo.png" alt="home" style="size: 200px 200px;" class="logo"></a>
+        
+        <a href="profile.html" class="el5"><img src="media/auth.png" alt="auth" class="auth"></a>
+    </nav>
+  </header>
+
+  <div class="user-info">
+    <p class="time"><span id="time">00:00</span></p>
+    <div class="stick"></div>
+    <p class="temp"><span id="weather">0 °C</span></p>
+  </div>
+
+<div class="things" id="activities-container">
+  <section class="recommendations">
+ <div class="activities-apple-style">
+ <div class="activity-card">
+  <div class="favorite-icon" onclick="toggleFavorite(this)">
+    <img src="icons/star-outline.png" alt="Избранное">
+  </div>
+  <div class="activity-content">
+    <h3>Погулять</h3>
+    <p>Описание активности</p>
+    <button onclick="logActivity('Погулять')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+  </div>
+  <img class="activity-img" src="icons/foot.png" alt="Активность 1">
+</div>
+
+
+  <div class="activity-card">
+    <div class="favorite-icon" onclick="toggleFavorite(this)">
+  <img src="icons/star-outline.png" alt="">
+</div>
+
+    <div class="activity-content">
+      <h3>Почитать книгу</h3>
+      <p>Описание активности</p>
+      <button onclick="logActivity('Почитать книгу')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+    </div>
+    <img class="activity-img" src="icons/book.png" alt="Активность 2">
+  </div>
+
+  <div class="activity-card">
+    <div class="favorite-icon" onclick="toggleFavorite(this)">
+      <img src="icons/star-outline.png" alt="Избранное">
+    </div>
+    <div class="activity-content">
+      
+      <h3>Сходить в кино</h3>
+      <p>Описание активности</p>
+      <button onclick="logActivity('Сходить в кино')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+    </div>
+    <img class="activity-img" src="icons/clapperboard.png" alt="Активность 3">
+  </div>
+
+  <div class="activity-card">
+    <div class="favorite-icon" onclick="toggleFavorite(this)">
+      <img src="icons/star-outline.png" alt="Избранное">
+    </div>
+    <div class="activity-content">
+      <h3>Пойти в парк атракционнов</h3>
+      <p>Описание активности</p>
+      <button onclick="logActivity('Пойти в парк атракционнов')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+    </div>
+    <img class="activity-img" src="icons/atrak.png" alt="Активность 4">
+  </div>
+
+  <div class="activity-card">
+    <div class="favorite-icon" onclick="toggleFavorite(this)">
+      <img src="icons/star-outline.png" alt="Избранное">
+    </div>
+    <div class="activity-content">
+      <h3>Съездить в ресторан</h3>
+      <p>Описание активности</p>
+      <button onclick="logActivity('Съездить в ресторан')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+    </div>
+    <img class="activity-img" src="icons/restaurant(1).png" alt="Активность 5">
+  </div>
+
+  <div class="activity-card">
+    <div class="favorite-icon" onclick="toggleFavorite(this)">
+      <img src="icons/star-outline.png" alt="Избранное">
+    </div>
+    <div class="activity-content">
+      <h3>Написать планы на день</h3>
+      <p>Описание активности</p>
+      <button onclick="logActivity('Написать планы на день')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+    </div>
+    <img class="activity-img" src="icons/plan.png" alt="Активность 6">
+  </div>
+
+  <div class="activity-card">
+    <div class="favorite-icon" onclick="toggleFavorite(this)">
+      <img src="icons/star-outline.png" alt="Избранное">
+    </div>
+    <div class="activity-content">
+      <h3>Поиграть в игры</h3>
+      <p>Описание активности</p>
+      <button onclick="logActivity('Поиграть в игры')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+    </div>
+    <img class="activity-img" src="icons/play.png" alt="Активность 7">
+  </div>
+
+  <div class="activity-card">
+    <div class="favorite-icon" onclick="toggleFavorite(this)">
+      <img src="icons/star-outline.png" alt="Избранное">
+    </div>
+    <div class="activity-content">
+      <h3>Позвонить родным</h3>
+      <p>Описание активности</p>
+      <button onclick="logActivity('Позвонить родным')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+    </div>
+    <img class="activity-img" src="icons/phone.png" alt="Активность 8">
+  </div>
+
+  <div class="activity-card">
+    <div class="favorite-icon" onclick="toggleFavorite(this)">
+      <img src="icons/star-outline.png" alt="Избранное">
+    </div>
+    <div class="activity-content">
+      <h3>Убраться дома</h3>
+      <p>Описание активности</p>
+      <button onclick="logActivity('Убраться дома')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+    </div>
+    <img class="activity-img" src="icons/clean.png" alt="Активность 9">
+  </div>
+
+  <div class="activity-card">
+    <div class="favorite-icon" onclick="toggleFavorite(this)">
+      <img src="icons/star-outline.png" alt="Избранное">
+    </div>
+    <div class="activity-content">
+      <h3>Поиграть с кошкой</h3>
+      <p>Описание активности</p>
+      <button onclick="logActivity('Поиграть с кошкой')" class="toFilter" style="margin-top: 10px; font-size: 16px;">Добавить в историю</button>
+    </div>
+    <img class="activity-img" src="icons/black-cat.png" alt="Активность 10">
+  </div>
+</div>
+
+
+  </section>
+</div>
+
+
+<div class="toFilter">
+    <a href="pr.html">Найти активность</a>
+</div>
+
+
+</body>
+</html>

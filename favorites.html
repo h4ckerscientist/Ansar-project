@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Избранное</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #9c27b0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      color: #ba68c8;
+    }
+
+    nav img {
+      height: 35px;
+    }
+
+    .town {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .recommendations {
+      padding: 40px;
+    }
+
+    h2 {
+      color: #ba68c8;
+      margin-bottom: 20px;
+    }
+
+    /* Горизонтальный скролл */
+    #favorites-list {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 10px;
+      height: 270px;
+    }
+
+    .activity-card {
+      flex: 0 0 180px;
+      height: 250px;
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 15px;
+      position: relative;
+      color: #e0e0e0;
+      transition: transform 0.2s;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .activity-card h3 {
+      font-size: 16px;
+      margin: 0 0 8px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #ba68c8;
+    }
+
+    .activity-card p {
+      font-size: 14px;
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #ccc;
+    }
+
+    .activity-img {
+      width: 100%;
+      height: 100px;
+      object-fit: contain;
+      margin-top: 10px;
+    }
+
+    .favorite-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      cursor: pointer;
+      width: 22px;
+      height: 22px;
+    }
+
+    .favorite-icon img {
+      width: 100%;
+      height: 100%;
+      filter: invert(90%);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="town">
+        <img src="media/location.png" alt="loc" class="loc" />
+        <p><span id="city"></span></p>
+      </div>
+      <a href="pr.html" class="el2">Найти активность</a>
+      <a href="index.html" class="el3">
+        <img src="media/logo.png" alt="home" class="logo" />
+      </a>
+      <a href="favorites.html" class="el4">Избранное</a>
+      <a href="profile.html" class="el5">
+        <img src="media/auth.png" alt="auth" class="auth" />
+      </a>
+    </nav>
+  </header>
+
+  <section class="recommendations">
+    <h2>Избранное</h2>
+    <div id="favorites-list"></div>
+  </section>
+
+<script>
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const list = document.getElementById('favorites-list');
+
+  function renderFavorites() {
+    list.innerHTML = '';
+
+    // Проверка на пустой список
+    const validFavorites = favorites.filter(fav => fav && fav.title && fav.icon);
+
+    if (validFavorites.length === 0) {
+      list.innerHTML = '<p style="color:#ccc;">Пока тут пусто 😔</p>';
+      return;
+    }
+
+    validFavorites.forEach((activity, index) => {
+      const card = document.createElement('div');
+      card.className = 'activity-card';
+
+      card.innerHTML = `
+        <div class="favorite-icon" title="Убрать из избранного" data-index="${index}">
+          <img src="icons/star-filled.png" alt="Удалить из избранного" />
+        </div>
+        <div class="activity-content">
+          <h3>${activity.title}</h3>
+          <p>${activity.desc || 'Без описания'}</p>
+        </div>
+        <img class="activity-img" src="${activity.icon || 'icons/default.png'}" alt="${activity.title}" />
+      `;
+
+      list.appendChild(card);
+    });
+
+    // Обработчик удаления из избранного
+    document.querySelectorAll('.favorite-icon').forEach(icon => {
+      icon.addEventListener('click', () => {
+        const idx = +icon.getAttribute('data-index');
+        favorites.splice(idx, 1);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        renderFavorites();
+      });
+    });
+  }
+
+  renderFavorites();
+</script>
+
+</body>
+</html>

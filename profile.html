@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Профиль</title>
+<link rel="stylesheet" href="styleprof.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <header>
+
+
+    <nav>
+        <div class="town">
+           <img src="media/location.png" alt="loc" class="loc">
+           <p><span id="city"></span></p>
+        </div>
+        <a href="pr.html" class="el2">Найти активность</a>
+        <a href="index.html" class="el3"><img src="media/logo.png" alt="home" style="size: 200px 200px;" class="logo"></a>
+        
+        <a href="profile.html" class="el5"><img src="media/auth.png" alt="auth" class="auth"></a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>👤 Профиль</h1>
+    <p><strong>Пользователь:</strong> <span id="username">-</span></p>
+
+    <h2>⚙️ Настройки предпочтений</h2>
+    <form onsubmit="savePrefs(event)">
+      <label for="prefMood">Любимое настроение:</label>
+      <select id="prefMood">
+        <option value="активное">Активное</option>
+        <option value="спокойное">Спокойное</option>
+        <option value="романтичное">Романтичное</option>
+      </select>
+
+      <label for="prefTime">Любимое время суток:</label>
+      <select id="prefTime">
+        <option value="morning">Утро</option>
+        <option value="day">День</option>
+        <option value="evening">Вечер</option>
+      </select>
+
+      <label for="prefBudget">Средний бюджет (₽):</label>
+      <input type="number" id="prefBudget">
+
+      <label for="prefPeople">Обычно людей:</label>
+      <input type="number" id="prefPeople">
+
+      <button type="submit" class="toFilter">Сохранить</button>
+    </form>
+
+    <h2>🕓 История активностей</h2>
+    <ul id="historyList"></ul>
+    <button onclick="clearHistory()" class="toFilter">Очистить всю историю</button>
+
+    <h2>⭐ Избранное</h2>
+    <ul id="favoritesList"></ul>
+
+    
+    <button onclick="logout()" class="toFilter">Выйти</button>
+  </main>
+
+  <script>
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!user || isLoggedIn !== 'true') {
+      location.href = 'login.html';
+    }
+
+    document.getElementById('username').textContent = user.username;
+
+    function logout() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('user');
+      location.href = 'login.html';
+    }
+
+    function getHistory() {
+      return JSON.parse(localStorage.getItem('history')) || [];
+    }
+
+    function saveHistory(arr) {
+      localStorage.setItem('history', JSON.stringify(arr));
+    }
+
+    function renderHistory() {
+      const history = getHistory();
+      const list = document.getElementById('historyList');
+      list.innerHTML = '';
+
+      if (history.length === 0) {
+        list.innerHTML = '<li>История пуста</li>';
+        return;
+      }
+
+      history.slice().reverse().forEach((item, reversedIndex) => {
+        const li = document.createElement('li');
+        li.style.display = 'flex';
+        li.style.justifyContent = 'space-between';
+        li.style.alignItems = 'center';
+
+        const span = document.createElement('span');
+        span.textContent = item;
+
+        const btn = document.createElement('button');
+        btn.textContent = '❌';
+        btn.title = 'Удалить';
+        btn.onclick = () => {
+          const history = getHistory();
+          const index = history.length - 1 - reversedIndex;
+          history.splice(index, 1);
+          saveHistory(history);
+          renderHistory();
+        };
+
+        li.appendChild(span);
+        li.appendChild(btn);
+        list.appendChild(li);
+      });
+    }
+
+    function clearHistory() {
+      if (confirm('Очистить всю историю активностей?')) {
+        localStorage.removeItem('history');
+        renderHistory();
+      }
+    }
+
+    function savePrefs(event) {
+      event.preventDefault();
+      alert('Предпочтения сохранены (локально)');
+    }
+function getFavorites() {
+  return JSON.parse(localStorage.getItem('favorites')) || [];
+}
+
+function saveFavorites(favs) {
+  localStorage.setItem('favorites', JSON.stringify(favs));
+}
+
+function renderFavorites() {
+  const favorites = getFavorites();
+  const list = document.getElementById('favoritesList');
+  list.innerHTML = '';
+
+  if (favorites.length === 0) {
+    list.innerHTML = '<li>Список избранного пуст</li>';
+    return;
+  }
+
+  favorites.forEach((item, index) => {
+    const li = document.createElement('li');
+    li.style.display = 'flex';
+    li.style.justifyContent = 'space-between';
+    li.style.alignItems = 'center';
+
+    const span = document.createElement('span');
+    span.textContent = item;
+
+    const btn = document.createElement('button');
+    btn.textContent = '❌';
+    btn.title = 'Удалить';
+    btn.onclick = () => {
+      const favs = getFavorites();
+      favs.splice(index, 1);
+      saveFavorites(favs);
+      renderFavorites();
+    };
+
+    li.appendChild(span);
+    li.appendChild(btn);
+    list.appendChild(li);
+  });
+}
+
+    renderFavorites();
+    renderHistory();
+  </script>
+</body>
+</html>

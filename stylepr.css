@@ -1,0 +1,126 @@
+/* Общие настройки */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Навигация */
+
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+.auth, .loc {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
+
+.town {
+  display: flex;
+  align-items: center;
+}
+
+.town p {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+/* Разделы страницы */
+.page-section {
+  padding: 30px 20px;
+  max-width: 800px;
+  margin: auto;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* Форма */
+form label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button.toFilter {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button.toFilter:hover {
+  background-color: #0056b3;
+}
+
+/* Результаты */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.activity {
+  background-color: #f1f3f5;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.activity:hover {
+  transform: translateY(-4px);
+}
+
+.activity-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+/* Заголовки */
+h1, h2, h3 {
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.sticky-filter {
+  position: relative;
+}

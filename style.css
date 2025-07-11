@@ -1,0 +1,447 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+   }
+
+
+body { 
+    background: #e6e8ea; 
+}
+
+
+header { 
+    background-color: #034569;
+    border-radius: 30px;
+    width: 95%;
+    height: max-content;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    align-items: center;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    width: max-content;
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.loc {
+    width: 20px;
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    gap: 2px;
+}
+
+
+.town {
+    display: flex;
+    width: max-content;
+    height: max-content;
+    font-size: 20px;
+    margin-left: 15px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+
+.el2 {
+    text-decoration: none;
+    color:#c8cdd2;
+    place-self: center;
+    transition: 0.6s;
+    font-size: 20px;
+}
+
+.el2:hover {
+    color: black;
+}
+
+
+.el3 {
+    position: absolute;
+    grid-column: 3;
+    place-self: center;
+
+    
+}
+
+
+/* CSS логотипа*/
+.logo {
+    height: 60px;
+    width: 60px;
+    transition: 0.6s;
+    margin-top: 10%;
+    margin-bottom: auto;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 20px black;
+      color: white;
+  display: block;
+  transition: transform 0.15s ease, filter 0.1s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo:active {
+  transform: scale(0.97);
+  filter: brightness(0.85);
+}
+
+/* CSS логотипа*/
+
+
+.el4 {
+    grid-column: 4;
+    place-self: center;
+    text-decoration: none;
+    color: #c8cdd2;
+    transition: 0.6s;
+    font-size: 20px;
+}
+
+.el4:hover {
+    color: black
+}
+
+
+.el5 {
+    grid-column: 5;
+    place-self: end;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 20px;
+}
+
+
+.auth {
+    width: 40px;
+    float: right;
+    transition: 0.6s;
+}
+
+.auth:hover{
+    filter: invert(1);
+}
+
+
+
+
+.user-info {
+    display: flex;
+    gap:100px;
+    margin-top: 50px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
+.time {
+    font-family: "Comfortaa";
+    font-size: 150px;
+    place-self: center;
+}
+
+.temp {
+    font-family: "Comfortaa";
+    font-size: 150px;
+    
+}
+
+
+.stick {
+    place-self: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ffd040;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+
+
+
+.things {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 800px;
+    background-color:  #64AAD0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 60px;
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.activity-card {
+    background-color: #e6f7ff;
+    border-radius: 15px;
+    padding: 15px;
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    margin-top: 30px;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
+.activity-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.activity-details {
+    font-size: 0.9em;
+    color: #555;
+}
+
+
+.toFilter {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 25px;
+  width: max-content;
+  height: max-content;
+  background-color: #6C8AD5;
+  border-radius: 10px;
+  font-size: 60px;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  display: block;
+  transition: transform 0.15s ease, filter 0.1s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toFilter:hover {
+  transform: scale(1.05);
+}
+
+.toFilter:active {
+  transform: scale(0.97);
+  filter: brightness(0.85);
+}
+
+.toFilter a {
+    text-decoration: none;
+    color: black;
+}
+
+.activities-apple-style {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+
+.activity-card {
+  position: relative;
+  width: 240px;
+  height: 300px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.activity-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.activity-content h3 {
+  font-size: 1.2em;
+  margin: 0;
+  color: #333;
+}
+
+.activity-content p {
+  font-size: 0.9em;
+  color: #666;
+  margin: 6px 0 0;
+}
+
+.activity-img {
+  width: 64px;
+  height: 64px;
+  align-self: flex-end;
+}
+
+/* Звезда */
+.favorite-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.favorite-icon img {
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+
+
+
+
+
+.page-section {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#suggest-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background-color: #f0f8ff;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#suggest-form label {
+  grid-column: 1 / -1;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#suggest-form input,
+#suggest-form textarea,
+#suggest-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+#suggest-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+#suggest-form .toFilter {
+  grid-column: 1 / -1;
+  padding: 12px 20px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#suggest-form .toFilter:hover {
+  background-color: #0d76d4;
+}
+
+section.page-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+.sticky-filter {
+  position: sticky;
+  top: 0;
+  background-color: white; /* чтобы не просвечивал фон */
+  z-index: 1000;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+#results {
+  display: flex;
+  flex-wrap: nowrap; /* чтобы не переносилось на новую строку */
+  overflow-x: auto; /* включаем горизонтальный скролл */
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.activity-card {
+  min-width: 250px;
+  flex: 0 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.stars {
+  font-size: 20px;
+  color: #ccc;
+  cursor: pointer;
+  user-select: none;
+}
+.stars span.selected,
+.stars span:hover,
+.stars span:hover ~ span {
+  color: gold;
+}
+
+.review-text {
+  width: 100%;
+  padding: 6px;
+  margin-top: 5px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.reviews-list {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
